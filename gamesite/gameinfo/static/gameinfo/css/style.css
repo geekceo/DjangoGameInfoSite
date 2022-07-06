@@ -1,0 +1,16 @@
+html, body {
+    height: 100%;
+    margin: 0px;
+    padding: 0px; 
+}
+
+table {
+    border: 0px;
+    margin:auto;
+    width:100%;
+    height:100%;
+}
+
+h1.header {
+    color: rgb(255, 255, 255);
+}

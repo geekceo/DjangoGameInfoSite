@@ -1,0 +1,34 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{{ title }}</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="{% static 'gameinfo/css/style.css' %}">
+    </head>
+    <body>
+    
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td colspan="2" style="background-color:#38280f;">
+                <h1 class="header">Верхняя часть сайта</h1>
+            </td>
+        </tr>
+        <tr style="vertical-align: top;">
+            <td style="background-color:#a4a4a4;width:20%;text-align:top;">
+                <b>Меню</b><br>
+                пункт 1<br>
+                пункт 2<br>
+                пункт 3
+            </td>
+            <td style="background-color:rgb(255, 255, 255);height:100% ;width:80%;text-align:top;">
+            {% block content %}
+
+            {% endblock content %}
+            </td>
+        </tr>
+      </table>
+    </body>
+</html>
