@@ -5,6 +5,8 @@ class Game(models.Model):
     decription = models.TextField()
     logo = models.ImageField(upload_to='gameinfo/images/', blank=True, null=True, verbose_name='Иконка')
     genre = models.ForeignKey('Genre', on_delete=models.PROTECT)
+    developer = models.CharField(max_length=255)
+    
 
     def __str__(self) -> str:
         return self.name

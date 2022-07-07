@@ -16,6 +16,7 @@ def showGenreGames(request, genreId) -> render:
         request,
         'gameinfo/genre.html',
         {
-            'title': Genre.objects.get(name=genreId).name_loc
+            'title': Genre.objects.get(name=genreId).name_loc,
+            'genreId': Genre.objects.get(name=genreId).id
         }
     )
