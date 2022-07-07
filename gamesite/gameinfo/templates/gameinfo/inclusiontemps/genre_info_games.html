@@ -1,10 +1,9 @@
 {% for game in games %}
     <p>
         <img class="game-logo" src="{{ game.logo.url }}" align="left" vspace="5" hspace="5">
-        <h3><b>{{ game.name }}</b></h3>
+        <h3 class="game-name"><b>{{ game.name }}</b></h3>
         <br>
-        <br>
-        Жанр: {{ game.genre }}
+        Жанр: {{ game.genre.name_loc }}
         <br>
         <br>
         Разработчик: {{ game.developer }}

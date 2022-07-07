@@ -19,7 +19,11 @@
         </tr>
         <tr style="vertical-align: top;">
             <td style="background-color:#EDEEEC;width:20%;text-align:top;">
-                {% showGenreList %}
+                {% if title == 'Главная страница' %} 
+                    {% showGenreList %}
+                {% else %}
+                    {% showGenreList title %}
+                {% endif %}
             </td>
             <td style="background-color:rgb(255, 255, 255);height:100% ;width:80%;text-align:top;">
             {% block content %}

@@ -1,6 +1,10 @@
 <ul class="genre-list">
     {% for name, name_loc in genres.items %}
-        <li><a class="genre-item" href="{% url 'genre' name %}"><b>{{ name_loc }}</b></a></li>
+        {% if selected == name %}
+            <li><a class="genre-item-selected" href="{% url 'genre' name %}"><b>{{ name_loc }}</b></a></li>
+        {% else %}
+            <li><a class="genre-item" href="{% url 'genre' name %}"><b>{{ name_loc }}</b></a></li>
+        {% endif %}
         <br>
     {% endfor %}
 </ul>
