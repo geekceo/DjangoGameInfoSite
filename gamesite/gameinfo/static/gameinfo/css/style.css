@@ -1,4 +1,5 @@
 html, body {
+    font-family: 'Arial';
     height: 100%;
     margin: 0px;
     padding: 0px; 
@@ -12,5 +13,28 @@ table {
 }
 
 h1.header {
-    color: rgb(255, 255, 255);
+    margin-left: 15px;
+}
+
+a.header-title {
+    text-decoration: none;
+    color: #E0B777;
+}
+
+ul.genre-list {
+    list-style-type: none;
+    padding: 0;
+    margin-left: 15px;
+}
+
+a.genre-item {
+    text-decoration: none;
+    color: #7D7F78;
+    font-size: 24px;
+}
+
+a.genre-item-selected {
+    text-decoration: none;
+    color: rgb(210, 22, 22);
+    font-size: 24px;
 }
