@@ -18,6 +18,11 @@ def showGenreList(selectedId = None) -> dict:
    
 
 @register.inclusion_tag('gameinfo/inclusiontemps/genre_info_games.html')
-def showGenreGames(genreId: int) -> dict:
+def showGenreGames(genreId: str) -> dict:
     games = Game.objects.filter(genre=genreId).order_by('name')
     return {'games': games}
+
+@register.inclusion_tag('gameinfo/inclusiontemps/game_info.html')
+def showGameInfo(gameId: str) -> dict:
+    game = Game.objects.get(name=gameId)
+    return {'game': game}

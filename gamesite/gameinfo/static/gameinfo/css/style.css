@@ -49,3 +49,13 @@ h3.game-name{
     position: relative;
     top: 1%;
 }
+
+a.game-name {
+    color: black;
+    text-decoration: underline;
+}
+
+a.genre-item-all{
+    text-decoration: none;
+    color: #45719F;
+}
