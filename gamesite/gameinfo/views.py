@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 
 from .models import Genre, Game
 
@@ -13,23 +13,25 @@ def index(request) -> render:
     )
 
 def showGenreGames(request, genreId) -> render:
+    genre = get_object_or_404(Genre, name=genreId)
     return render(
         request,
         'gameinfo/genre.html',
         {
-            'title': Genre.objects.get(name=genreId).name_loc,
-            'genreId': Genre.objects.get(name=genreId).id,
-            'selected_genre': Genre.objects.get(name=genreId).name_loc
+            'title': genre.name_loc,
+            'genreId': genre.id,
+            'selected_genre': genre.name_loc
         }
     )
 
-def showGameInfo(request, genreId, gameId) -> render:
+def showGameInfo(request, genreId, gameSlug) -> render:
+    game = get_object_or_404(Game, slug=gameSlug)
     return render(
         request,
         'gameinfo/game.html',
         {
-            'title': gameId,
-            'selected_genre': Genre.objects.get(name=genreId).name_loc,
-            'game': Game.objects.get(name=gameId)
+            'title': game.name,
+            'selected_genre': game.genre.name_loc,
+            'game': game
         }
     )

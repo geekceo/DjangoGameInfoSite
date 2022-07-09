@@ -1,7 +1,7 @@
 {% for game in games %}
     <p>
         <img class="game-logo" src="{{ game.logo.url }}" align="left" vspace="5" hspace="5">
-        <h3 class="game-name"><b><a class="game-name" href="{% url 'game' game.genre game.name %}">{{ game.name }}</a></b></h3>
+        <h3 class="game-name"><b><a class="game-name" href="{{ game.get_absolute_url }}">{{ game.name }}</a></b></h3>
         <br>
         Жанр: {{ game.genre.name_loc }}
         <br>
