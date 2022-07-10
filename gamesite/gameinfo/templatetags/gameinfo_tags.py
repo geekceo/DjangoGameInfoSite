@@ -11,10 +11,8 @@ def showGenreList(selectedId = None) -> dict:
             [genre.name_loc for genre in Genre.objects.all().order_by('id')]
         )
     )
-    if selectedId == None:
-        return { 'genres': genres, 'selected': '-' }
-    else:
-        return { 'genres': genres, 'selected': Genre.objects.get(name_loc=selectedId).name }
+
+    return { 'genres': genres, 'selected': '-' } if selectedId == None else { 'genres': genres, 'selected': Genre.objects.get(name_loc=selectedId).name }
    
 
 @register.inclusion_tag('gameinfo/inclusiontemps/genre_info_games.html')
