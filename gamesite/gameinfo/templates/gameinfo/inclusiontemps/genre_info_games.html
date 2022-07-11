@@ -1,15 +1,17 @@
 {% for game in games %}
     <p>
-        <img class="game-logo" src="{{ game.logo.url }}" align="left" vspace="5" hspace="5">
-        <h3 class="game-name"><b><a class="game-name" href="{{ game.get_absolute_url }}">{{ game.name }}</a></b></h3>
-        <br>
-        Жанр: {{ game.genre.name_loc }}
-        <br>
-        <br>
-        Разработчик: {{ game.developer }}
-        <br>
-        <br>
-        {{ game.decription|truncatewords:60 }}
+        <div class="game-info">
+            <img class="game-logo" src="{{ game.logo.url }}" align="left" vspace="5" hspace="5">
+            <h3 class="game-name"><b><a class="game-name" href="{{ game.get_absolute_url }}">{{ game.name }}</a></b></h3>
+            <br>
+            Жанр: {{ game.genre.name_loc }}
+            <br>
+            <br>
+            Разработчик: {{ game.developer }}
+            <br>
+            <br>
+            {{ game.decription|truncatewords:60 }}
+        </div>
     </p>
     <hr>
 {% endfor %}

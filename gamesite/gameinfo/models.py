@@ -15,7 +15,7 @@ class Game(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('game', kwargs={'genreId': self.genre.name, 'gameSlug': self.slug})
+        return reverse('game', kwargs={ 'genreId': self.genre.name, 'gameSlug': self.slug })
 
 
 class Genre(models.Model):
@@ -24,3 +24,12 @@ class Genre(models.Model):
 
     def __str__(self) -> str:
         return self.name
+
+
+class Comment(models.Model):
+    time_create = models.DateTimeField(auto_now_add=True)
+    text = models.TextField()
+    game = models.ForeignKey('Game', on_delete=models.PROTECT)
+
+    def __str__(self) -> str:
+        return self.text

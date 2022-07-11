@@ -47,7 +47,7 @@ img.game-logo {
 
 h3.game-name{
     position: relative;
-    top: 1%;
+    top: 5px;
 }
 
 a.game-name {
@@ -58,4 +58,38 @@ a.game-name {
 a.genre-item-all{
     text-decoration: none;
     color: #45719F;
+}
+
+div.game-info {
+    height: auto;
+    width: auto;
+    position: relative;
+    left: 1%;
+}
+
+div.comment-area {
+    position: relative;
+    left: 1.5%;
+}
+
+textarea.comment-area {
+    outline: none;
+	-moz-appearance: none;
+    resize: none;
+    overflow: auto;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-family: 'Arial';
+}
+
+button.button-send {
+    background-color: #4CAF50;
+    border: none;
+    background-color: #3E4035;
+    color: #E0B777;
+    width: 10%;
+    font-size: 100%;
+    
 }

@@ -1,12 +1,31 @@
 <p>
-    <img class="game-logo" src="{{ game.logo.url }}" align="left" vspace="5" hspace="5">
-    <h3 class="game-name"><b>{{ game.name }}</b></h3>
+    <div class="game-info">
+        <img class="game-logo" src="{{ game.logo.url }}" align="left" vspace="5" hspace="5">
+        <h3 class="game-name"><b>{{ game.name }}</b></h3>
+        <br>
+        Жанр: <a class="genre-item-all" href="{% url 'genre' game.genre %}">{{ game.genre.name_loc }}</a>
+        <br>
+        <br>
+        Разработчик: {{ game.developer }}
+        <br>
+        <br>
+        {{ game.decription }}
+    </div>
     <br>
-    Жанр: <a class="genre-item-all" href="{% url 'genre' game.genre %}">{{ game.genre.name_loc }}</a>
-    <br>
-    <br>
-    Разработчик: {{ game.developer }}
-    <br>
-    <br>
-    {{ game.decription }}
+    <hr>
+    <div class="comment-area">
+        <h3>Оставьте свое впечатление об игре!</h3>
+        <form action="{{ game.get_absolute_url }}" method="POST">
+            {% csrf_token %}
+            <p>{{ form.text }}</p>
+            <div class="form-error">{{ form.text.errors }}</div>
+            <button class="button-send" type="sumbit">Отправить</button>
+        </form>
+    </div>
+    <hr>
+    <div class="comments-field">
+        {% for comment in comments %}
+            <p class="comment-text">{{ comment.text }}</p>
+        {% endfor %}
+    </div>
 </p>

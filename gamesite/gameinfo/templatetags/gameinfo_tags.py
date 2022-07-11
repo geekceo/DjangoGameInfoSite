@@ -1,5 +1,6 @@
 from django import template
 from gameinfo.models import *
+from django import forms
 
 register = template.Library()
 
@@ -18,9 +19,9 @@ def showGenreList(selectedId = None) -> dict:
 @register.inclusion_tag('gameinfo/inclusiontemps/genre_info_games.html')
 def showGenreGames(genreId: str) -> dict:
     games = Game.objects.filter(genre=genreId).order_by('name')
-    return {'games': games}
+    return { 'games': games }
 
 @register.inclusion_tag('gameinfo/inclusiontemps/game_info.html')
-def showGameInfo(gameId: str) -> dict:
+def showGameInfo(gameId: str, form: forms.Form, comments: dict) -> dict:
     game = Game.objects.get(name=gameId)
-    return {'game': game}
+    return { 'game': game, 'form': form, 'comments': comments }
