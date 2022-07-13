@@ -28,7 +28,7 @@ def showGenreGames(request, genreId) -> render:
 
 def showGameInfo(request, genreId, gameSlug) -> render:
     game = get_object_or_404(Game, slug=gameSlug)
-    comments = Comment.objects.filter(game=game)
+    comments = Comment.objects.filter(game=game).order_by('-time_create')
     if request.method == 'POST':
         form = AddCommentForm(request.POST)
         if form.is_valid():

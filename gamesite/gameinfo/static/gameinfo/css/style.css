@@ -3,6 +3,8 @@ html, body {
     height: 100%;
     margin: 0px;
     padding: 0px; 
+    width: 100%;
+    overflow-x: hidden;
 }
 
 table {
@@ -45,6 +47,34 @@ img.game-logo {
     border: 5px solid black;
 }
 
+img.user-icon {
+    border-radius: 100px; /* Радиус скругления */
+    border: 3px solid green; /* Параметры рамки */
+    box-shadow: 0 0 7px #666; /* Параметры тени */
+    width: 32px;
+    height: 32px;
+    float: left;
+    display: table-cell;
+}
+
+p.comment-text {
+    position: relative;
+    left: 1%;
+    margin: 0px;
+    width: 800px;
+    padding: 0px;
+    
+}
+
+span.user-name {
+    position: relative;
+    left: 1%;
+}
+
+span.comment-time {
+    font-size: 12px;
+}
+
 h3.game-name{
     position: relative;
     top: 5px;
@@ -70,6 +100,15 @@ div.game-info {
 div.comment-area {
     position: relative;
     left: 1.5%;
+}
+div.comments-field {
+    position: relative;
+    left: 1.5%;
+    width: 900px;
+}
+
+div.comment {
+    display: table;
 }
 
 textarea.comment-area {

@@ -25,7 +25,12 @@
     <hr>
     <div class="comments-field">
         {% for comment in comments %}
-            <p class="comment-text">{{ comment.text }}</p>
+            <div class="comment">
+                <img class="user-icon" src="https://api.icons8.com/download/66e6b8ee50e97fbf61ff1ffc58f01a6282328a62/iOS7/PNG/512/Logos/discord_logo_filled-512.png">
+                <span class="user-name"><b>Gamer</b> <span class="comment-time">{{ comment.time_create }}</span></span>
+                <p class="comment-text">{{ comment.text }}</p>
+            </div>
+            <br>
         {% endfor %}
     </div>
 </p>
