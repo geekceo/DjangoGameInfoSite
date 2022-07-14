@@ -12,10 +12,10 @@
 ### Для тестового запуска войти в вирутальное окружение (venv) следующей командой: ###
 
 ##### Linux #####
-< source ./venv/Scripts/activate >
+` source ./venv/Scripts/activate `
 
 ##### Windows #####
-< .\venv\Scripts\activate >
+` .\venv\Scripts\activate `
 
 ### Перейти в папку проекта **gamesite** и запустить проект командой: ###
-< python manage.py runserver >
+` python manage.py runserver `
