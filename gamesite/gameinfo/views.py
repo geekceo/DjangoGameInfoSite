@@ -1,3 +1,5 @@
+from typing import Any
+from django.views.generic import ListView
 from django.shortcuts import get_object_or_404, redirect, render
 
 from .forms import *
@@ -14,17 +16,20 @@ def index(request) -> render:
         }
     )
 
-def showGenreGames(request, genreId) -> render:
-    genre = get_object_or_404(Genre, name=genreId)
-    return render(
-        request,
-        'gameinfo/genre.html',
-        {
-            'title': genre.name_loc,
-            'genreId': genre.id,
-            'selected_genre': genre.name_loc
-        }
-    )
+class GenreGames(ListView):
+    model = Genre
+    template_name = 'gameinfo/genre.html'
+    context_object_name = 'genre'
+
+    def get_context_data(self, **kwargs: Any) -> dict:
+        genre = get_object_or_404(Genre, name=self.kwargs['genreId'])
+        context = super().get_context_data(**kwargs)
+        context['title'] = genre.name_loc
+        context['selected_genre'] = genre.name_loc
+        context['genre_id'] = genre.id
+        print(context)
+
+        return context
 
 def showGameInfo(request, genreId, gameSlug) -> render:
     game = get_object_or_404(Game, slug=gameSlug)
